@@ -2,7 +2,7 @@
 
 Detailed deployment steps with the resource creation configurations are in **"deployment.doc"** file
 
-### GitHUB link: 
+### GitHUB Repo link: 
 ```
 https://github.com/mzakaria1/flask-api
 ```
