@@ -5,6 +5,7 @@ Detailed deployment steps with the resource creation configurations are in **"de
 ### Replacement Steps
 - Replace the ***pgsql connection string*** with the format defined in the **appspec.yaml**
 - Replace the ECR and image name in the ***buildspe.yaml and eks/deployment.yaml*** files
+- Replace the **EKS CLuster name** in the ***appspec.yaml** file 
 ### Deployment Strategy
 - Spinning the EC2 Instance with the **Amazon Linux 2 AMI*** and the user data provided in the file : ***user_data_for_ec2.sh*** which installs the AWS **CodeDeploy agent and Docker** and there is no need to install aws cli becuase it's already installed
 - Spinning the RDS and create the database in it and store the username and password. Also replace the ***pgsql connection string*** with the format defined in the appspec.yaml
