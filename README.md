@@ -1,15 +1,24 @@
 # Deploy APP on EC2-RDS and EKS using AWS CodeDeploy
 
-Detailed deployment steps with the resource creation configurations are in **"deployment.doc"** file
+### Detailed deployment steps with the resource creation configurations and deployment are in **"deployment.doc"** file
 
 ### GitHUB Repo link: 
 ```
 https://github.com/mzakaria1/flask-api
 ```
+
+### RDS Connection
+- Create RDS with the configurations defined in the steps below, create DB in RDS with the name ***recipe_db*** and create DB connection string according to the following format:
+```
+postgres://YourUserName:YourPassword@YourHostname:5432/YourDatabaseName
+```
+- Hostname should be the endpoint of RDS
+- Replace this string defined in the replacement steps
 ### Replacement Steps
 - Replace the ***pgsql connection string*** with the format defined in the **appspec.yaml**
 - Replace the ECR and image name in the ***buildspe.yaml and eks/deployment.yaml*** files
-- Replace the **EKS CLuster name** in the ***appspec.yaml** file 
+- Replace the **EKS CLuster name** in the ***appspec.yaml*** file 
+
 ### Deployment Strategy
 - Spinning the EC2 Instance with the **Amazon Linux 2 AMI*** and the user data provided in the file : ***user_data_for_ec2.sh*** which installs the AWS **CodeDeploy agent and Docker** and there is no need to install aws cli becuase it's already installed
 - Spinning the RDS and create the database in it and store the username and password. Also replace the ***pgsql connection string*** with the format defined in the appspec.yaml
