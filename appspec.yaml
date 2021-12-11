@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: ./
+    destination: /home/ec2-user
+hooks:
+  ApplicationStart:
+    - location: scripts/run_dockerfile.sh "test-key" "postgres://YourUserName:YourPassword@YourHostname:5432/YourDatabaseName"
+      timeout: 300
+      runas: root
+    - location: eks/run_eks.sh
+      timeout: 300
+      runas: root
+  

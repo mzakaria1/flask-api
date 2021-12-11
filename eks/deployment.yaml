@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-api
+  labels:
+    app: test-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-api
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 50%
+  template:
+    metadata:
+      labels:
+        app: test-api
+    spec:
+      containers:
+        - name: test-api
+          image: ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/test-app:latest
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+          env:
+            - name: SECRET_KEY
+              value: "test-key"
+            - name: DATABASE_URL
+              value: "postgres://YourUserName:YourPassword@YourHostname:5432/YourDatabaseName"
+  
