@@ -8,7 +8,7 @@ hooks:
     - location: scripts/run_dockerfile.sh "test-key" "postgres://YourUserName:YourPassword@YourHostname:5432/YourDatabaseName"
       timeout: 300
       runas: root
-    - location: eks/run_eks.sh
+    - location: eks/run_eks.sh "us-east1" "test-cluster"
       timeout: 300
       runas: root
   
