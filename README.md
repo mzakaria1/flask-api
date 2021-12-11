@@ -2,6 +2,10 @@
 
 Detailed deployment steps with the resource creation configurations are in **"deployment.doc"** file
 
+### GitHUB link: 
+```
+https://github.com/mzakaria1/flask-api
+```
 ### Replacement Steps
 - Replace the ***pgsql connection string*** with the format defined in the **appspec.yaml**
 - Replace the ECR and image name in the ***buildspe.yaml and eks/deployment.yaml*** files
@@ -27,7 +31,7 @@ Detailed deployment steps with the resource creation configurations are in **"de
     - RDS Configurations ![alt text](./images/rds.png)
     ```bash
     createdb recipe_db
-   ```
+    ```
 6. Create **EKS Cluster** and configure the Networking according to the VPC created above
 6. Create **CodeBuild Project** to build the docker image for the deployment <br />
     - Image 6.1: ![alt text](./images/codebuild-1.png)
